@@ -1,0 +1,45 @@
+<html>
+<head>
+   <h2>All Assignment files</h2>
+    <p>Welcome to my website. Click the link below to visit my blog:</p>
+    <a href="https://github.com/Noor-Khan662"</a>
+</body>
+</html>
+
+</head>
+<body>
+    <h1>Assignment 1</h1>
+    <p>This is the content of your assignment.</p>
+    <h2>Section 1</h2>
+    <p>Content of section 1 goes here.</p>
+    <h2>Section 2</h2>
+    <p>Content of section 2 goes here.</p>
+</body>
+</html>
+<select>
+    <option value="Assignment1.html">Assignment 1</option>
+    <option value="Assignment2.html">Assignment 2</option>
+    <!-- Add more options for each assignment -->
+</select>
+<select id="assignmentSelect" onchange="showAssignment()">
+    <option value="">Select Assignment</option>
+    <option value="Assignment1.html">Assignment 1</option>
+    <option value="Assignment2.html">Assignment 2</option>
+    <!-- Add more options for each assignment -->
+</select>
+<div id="assignmentContent"></div>
+
+<script>
+function showAssignment() {
+    var selectedAssignment = document.getElementById("assignmentSelect").value;
+    if (selectedAssignment !== "") {
+        fetch(selectedAssignment)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("assignmentContent").innerHTML = data;
+            });
+    } else {
+        document.getElementById("assignmentContent").innerHTML = "";
+    }
+}
+</script>
